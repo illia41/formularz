@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function valid(form){
+    var mail = form.mail1.value;
+    var message = "sprawdz na poczcie powiadomienie o zgodzie i informACJE O przesylce";
+    if(mail == "" || mail == " ") {
+        alert("nie poprawnie");
+        return false;
+    }
+    else{
+        alert(message);
+        return true;
+    }
+}
+    function oblicz(form){
+        wynik.innerHTML = " ";
+        var suma = 0;
+        var vat = 0.23;
+        if(form.typ[0].checked) 
+        {
+            suma = suma + 500;
+        }
+        if(form.typ[1].checked)
+        {
+            suma = suma + 200;
+        }
+        if(form.inst.selectedIndex==0)
+        {
+            suma = suma + 850;
+        }
+        if(form.inst.selectedIndex==1)
+        {
+            suma = suma + 950;
+        }
+        if(form.inst.selectedIndex==2)
+        {
+            suma = suma + 3000;
+        }
+        if(form.inst.selectedIndex==3)
+        {
+            suma = suma + 4000;
+        }
+        if(form.inst.selectedIndex==4)
+        {
+            suma = suma + 500;
+        }
+        if(form.inst.selectedIndex==5)
+        {
+            suma = suma + 850;
+        }
+        if(form.inst.selectedIndex==6)
+        {
+            suma = suma + 2000;
+        }
+        if(form.inst.selectedIndex==7)
+        {
+            suma = suma + 800;
+        }
+        if(form.inst.selectedIndex==8)
+        {
+            suma = suma + 1500;
+        }
+        if(form.inst.selectedIndex==9)
+        {
+            suma = suma + 1000;
+        }
+        if(form.inst.selectedIndex==10)
+        {
+            suma = suma + 1000;
+        }
+        if(form.inst.selectedIndex==11)
+        {
+            suma = suma + 2000;
+        }
+        if(form.inst.selectedIndex==12)
+        {
+            suma = suma + 3000;
+        }
+        if(form.karta.checked == true)
+        {
+            suma=0.8*suma;
+        }
+        if(form.karta.checked == false)
+        {
+            suma = 1*suma;
+        }
+        if(vat==0.23)
+        {
+            suma = 1.23*suma;
+        }
+        wynik.innerHTML="suma:  "+suma+" zł";
+        /*alert(suma); */   
+    }
+    </script>
+</head>
+<body>
+    <form action="" method="post" name="test" onsubmit="valid(this)">
+        <label for="firstname">imie zamawiajacego</label>
+        <input type="text" name="firstname" placeholder="imie" id="firstname" /></br> <br>
+        <label for="lastname"> nazwisko </label>
+        <input type="text" name="lastname" placeholder="nazwisko" id="lastname" /><br> <br>
+        <label for="mail1"> adres mail odbiorcy</label>
+        <input type="text" name="mail1" placeholder="mail 1" id="mail1" /> <br> <br>
+        <span> DOSTAWA </span>
+        <input type="radio" name="typ" id="kurier" value="kurier" /> <label>kurierem</label><br> <br>
+        <input type="radio" name="typ" id="poczta" value="poczta"/> <label> na poczte</label><br> <br>
+        <!input type="checkbox" id="violin" name="violin" value="violin">
+        
+        <p>wybierz instrumenty</p>
+        <select name="inst">
+            <option value="0">violin</option>
+            <option value="1">viola</option>
+            <option value="2">cello</option>
+            <option value="3">upright bass</option>
+            <option value="4">electric guitar</option>
+            <option value="5">electric bass</option>
+            <option value="6">drums</option>
+            <option value="7">flute</option>
+            <option value="8">oboe</option>
+            <option value="9">clairnet</option>
+            <option value="10">fagot</option>
+            <option value="11">trumpet</option>
+            <option value="12">trombpne</option>
+            <option value="13">tuba</option>
+        </select>
+        <input type="checkbox" id="karta" name="karta" value="0.75">
+        <label for="karta">posiadam karte MojIllia</label><br>
+        <label for="karta_num">Wprowadz numer karty MojIllia(jezeli posiadasz)</label>
+        <input type="text" name="karta_num" placeholder="numer karty" id="karta_num" /> <br><br>
+        <input type="button" name="button" onClick="oblicz(this.form)" value="button"/>
+        <input type="submit"  name="submit" value="done" />
+    </form>
+    <table>
+        <tr id="wynik"></tr>
+    </table>
+</body>
+</html>
